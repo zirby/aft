@@ -1,0 +1,26 @@
+body{
+    font-family: "Times", serif;
+}
+.bloc_entete{
+    float: left;
+    width: 300px;
+    text-align: center;
+}
+.bloc_date_adresse{
+    float: right;
+    width: 300px;
+    text-align: left;
+}
+.bloc_principal{
+    clear: both;
+    text-align: left;
+    padding-top: 40px;
+}
+.bloc_signature{
+    text-align: right;
+    padding-top: 50px;
+    padding-right: 100px;
+}
+h1, h2, h3, h4 {
+    margin: 3px;
+}
