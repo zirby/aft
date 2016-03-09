@@ -112,11 +112,18 @@ doDispo("VEN04");
                 <input id="inputBeneficiaire" type="text" class="form-control">
             </div>
         </div>
-        <div class="col-md-12"><p style="font-size: 1em;"><b> MONTANT</b></p></div>
-        <div class="col-md-12">
+        <div class="col-md-6"><p style="font-size: 1em;"><b> MONTANT</b></p></div>
+        <div class="col-md-6"><p style="font-size: 1em;"><b> TYPE DE TICKET</b></p></div>
+        <div class="col-md-6">
             <div class="input-group">
                 <span class="input-group-addon">Montant: </span>
                 <input id="inputBeneficiaire" type="text" class="form-control" value="0">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">Type: </span>
+                <input id="inputType" type="text" class="form-control" value="0">
             </div>
         </div>
 
