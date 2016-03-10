@@ -117,7 +117,7 @@ doDispo("VEN04");
         <div class="col-md-6">
             <div class="input-group">
                 <span class="input-group-addon">Montant: </span>
-                <input id="inputBeneficiaire" type="text" class="form-control" value="0">
+                <input id="inputMontant" type="text" class="form-control" value="0">
             </div>
         </div>
         <div class="col-md-6">
