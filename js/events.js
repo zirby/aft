@@ -127,4 +127,27 @@ $(document).ready(function(){
             });
         
     });    
+    
+    $('#btnReserverVen').click(function () {
+        $.ajax({
+            "url": "inc/doReservOrg.php",
+            "type": "POST",
+            "dataType": "json",
+            "data": {
+                "inputPlaces": $('#inputPlaces').val(),
+                "inputPlacesHalf":$('#inputPlacesHalf').val(),
+                "inputBeneficiaire":$('#inputBeneficiaire').val(),
+                "inputMontant": $('#inputMontant').val(),
+                "inputType": $('#inputType').val(),
+                "day": "VEN04",
+                "bloc": "VEN04",
+            },
+            "success": function (data) {
+                console.log(data.msg);
+                document.location.href = "confirmation.php";
+            }
+        });
+
+    });
+
 });
