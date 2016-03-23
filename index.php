@@ -11,16 +11,13 @@
     <div class="col-md-12" style="height: 20px;"></div>
 </div><div class="row">
     <div class="col-md-4">
-        <a href="index_ven.php" type="button" class="btn btn-success btn-lg btn-block"><h1>VENDREDI</h1></a>
-        <!--<div class="alert alert-success text-center" role="alert"><h1>VENDREDI</h1></div>-->
+        <a href="org_reserv.php?jour=ven" type="button" class="btn btn-success btn-lg btn-block"><h1>VENDREDI</h1></a>
     </div>
     <div class="col-md-4">
-        <button type="button" class="btn btn-info btn-lg btn-block"><h1>SAMEDI</h1></button>
-        <!--<div class="alert alert-info text-center" role="alert"><h1>SAMEDI</h1></div>-->
+        <a href="org_reserv.php?jour=sam" type="button" class="btn btn-info btn-lg btn-block"><h1>SAMEDI</h1></a>
     </div>
     <div class="col-md-4">
-        <button type="button" class="btn btn-warning btn-lg btn-block"><h1>DIMANCHE</h1></button>
-        <!--<div class="alert alert-warning text-center" role="alert"><h1>DIMANCHE</h1></div>-->
+        <a href="org_reserv.php?jour=dim" type="button" class="btn btn-warning btn-lg btn-block"><h1>DIMANCHE</h1></a>
     </div>
 </div>
 <?php require 'inc/footer.php';

@@ -1,36 +1,42 @@
 <?php
 
 require_once 'inc/conn.php';
-$req = $pdo->prepare("SELECT  *, r.id as rid FROM cd16_reservations as r, cd16_users as u WHERE r.user_id= u.id ORDER BY r.id DESC  ");
+$jour=$_GET['jour'];
+// transformation du jour 
+switch ($jour) {
+    case "ven":
+        $jourReserv="VEN04";
+        $grandJour="VENDREDI";
+        $couleurJour="success";
+        break;
+    case "sam":
+        $jourReserv="SAM05";
+        $grandJour="SAMEDI";
+        $couleurJour="info";
+        break;
+    case "dim":
+        $jourReserv="DIM06";
+        $grandJour="DIMANCHE";
+        $couleurJour="warning";
+        break;
+}
+
+$req = $pdo->prepare("SELECT  *, r.id as rid FROM cd16_reservations as r, cd16_users as u WHERE r.user_id= u.id AND u.lastname='AFT' AND jour='".$jourReserv."' ORDER BY r.id DESC  ");
 $req->execute();
 
 
 if(isset($_POST['btnSearchNom'])){
-    $req = $pdo->prepare("SELECT  *, r.id as rid FROM cd16_reservations as r, cd16_users as u WHERE r.user_id= u.id AND u.lastname like '".$_POST['searchNom']."%' ORDER BY r.id DESC  ");
+    $req = $pdo->prepare("SELECT  *, r.id as rid FROM cd16_reservations as r, cd16_users as u WHERE r.user_id= u.id AND u.firstname like '".$_POST['searchNom']."%' AND u.lastname='AFT' AND jour='".$jourReserv."' ORDER BY r.id DESC  ");
     $req->execute();
 }
 
-/*if(session_status() == PHP_SESSION_NONE){
-    session_start();
-}
 
-unset($_SESSION['priceTot']);
-unset($_SESSION['placeFullNb']);
-unset($_SESSION['placeHalfNb']);
-unset($_SESSION['placeBloc']);
-unset($_SESSION['type']);
-unset($_SESSION['resId']);
-
-$_SESSION['jour']="VEN04";
-
-require 'inc/function.php';
-doDispo("VEN04");
-*/
 ?>
 <?php require 'inc/header.php'; ?>
+<div id="jour" hidden="true"><?= $jour ?></div>
 <div class="row text-center">
     <div class="col-md-12">
-        <button type="button" class="btn btn-success"><h2>Tickets - AFT - VENDREDI</h2></button>
+        <button type="button" class="btn btn-<?= $couleurJour ?>"><h2>Tickets - AFT - <?= $grandJour ?></h2></button>
     </div>
     <div class="col-md-12" style="height: 20px;"></div>
 </div>
@@ -129,7 +135,7 @@ doDispo("VEN04");
 
         <p id="salleHelp" style="font-size: 1em;"></p>
         <div class="col-md-12" style="height: 20px;"></div>
-        <button id="btnReserverVen" type="button" class="btn btn-primary btn-lg">Réserver</button>
+        <button id="btnReservOrg" type="button" class="btn btn-primary btn-lg">Réserver</button>
     </div>
 
 </div>
