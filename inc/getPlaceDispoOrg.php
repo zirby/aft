@@ -14,7 +14,10 @@ $places = $req->fetch();
 $bloc_name = strtoupper (str_replace("_", " ", $places->name));
 
 $result['bloc']= $bloc_name;
+$result['max']= $places->max;
+$result['max_org']= $places->max_org;
 $result['nb']= $places->places;
+$result['nb_org']= $places->places_org;
 $result['price']= $places->price;
 $result['price_half']= $places->price_half;
 $result['price_abn']= $places->price_abn;

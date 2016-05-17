@@ -23,7 +23,7 @@ function selectBloc(bloc) {
         "dataType": "json",
         "success": function (data) {
             $("#helpZone").text("");
-            placeDispo = data.nb;
+            placeDispo = data.nb_org;
             if (placeDispo <= 0) {
                 $("#pZone").html(data.zone);
                 $("#pBloc").html("<button class='btn btn-" + data.color + "' type='button'>" + data.bloc + " <span class='badge'>complet</span></button>");
@@ -37,7 +37,7 @@ function selectBloc(bloc) {
                 $('#btnReservOrg').hide();
             } else {
                 $("#pZone").html(data.zone);
-                $("#pBloc").html("<button class='btn btn-" + data.color + "' type='button'>" + data.bloc + " <span class='badge'>" + data.nb + "</span></button>");
+                $("#pBloc").html("<button class='btn btn-" + data.color + "' type='button'>" + data.bloc + " <span class='badge'>" + placeDispo + "</span></button>");
                 if (abn) {
                     $("#pPrice").html("Adulte: " + data.price_abn + ".00 € --- Enfant: " + data.price_abn_half + ".00 €");
                     priceUnit = data.price_abn;
