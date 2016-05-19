@@ -214,8 +214,7 @@ if(isset($_POST['btnSearchNom'])){
                 <td style="text-align: left;"><?= $res->nbplaces_half; ?></td>
                 <td style="text-align: right;"><?= $res->reserve_le; ?></td>
                 <td style="text-align: right;">
-                    <a href="inc/doAccepteLe.php?reserv=<?= $res->rid; ?>" class="btn btn-default btn-xs" title="modifier"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                    <a href="inc/doSupprimeLe.php?reserv=<?= $res->rid; ?>" class="btn btn-danger btn-xs" title="supprimer"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
+                    <a href="inc/doSupprimeOrg.php?reserv=<?= $res->rid; ?>" class="btn btn-danger btn-xs" title="supprimer"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
                 </td>
              </tr>
              <?php endwhile; ?>

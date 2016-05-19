@@ -43,5 +43,5 @@ $bloc = $_POST['bloc'];
 $req = $pdo->prepare("INSERT INTO cd16_reservations SET user_id = ?,  jour = ?, type = ?, bloc = ?, nbplaces = ?, nbplaces_half = ?,  montant = ?, reserve_le = NOW()");
 $req->execute([$user_id,  $jourReserv, $type, $bloc, $places, $placeshalf, $montant]);
 
-header('Location:../org_reserv.php?jour='.$jour);
+header('Location:../index.php');
 exit();

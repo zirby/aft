@@ -138,7 +138,7 @@ $("#bloc_a").click(function () {selectBloc("bloc_a");});
             },
             "success": function (data) {
                 console.log(data);
-                //document.location.href = "org_reserv.php?jour="+lejour;
+                document.location.href = "org_reserv.php?jour="+lejour;
             }
         });
 
