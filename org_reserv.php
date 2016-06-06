@@ -67,7 +67,7 @@ if(isset($_POST['btnSearchNom'])){
 <div class="row">
 <div id="jour" hidden="true">04</div>
 <div class="col-md-6">
-    <img src="img/Salle_600.jpg" alt="la salle" class="img-rounded displayed" usemap="#map-cd2016_600"/>
+<img src="img/Salle_600.jpg" alt="la salle" class="img-rounded displayed" usemap="#map-cd2016_600"/>
 <map name="map-cd2016_600" id="map-cd2016_600">
 <area id="bloc_a" alt="" title="" href="#" shape="rect" coords="155,266,209,345" />
 <area id="bloc_b" alt="" title="" href="#" shape="rect" coords="158,223,207,260" />
