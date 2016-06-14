@@ -21,7 +21,7 @@ switch ($jour) {
         break;
 }
 // faire doDispo ORG avec IDENTIFIANT de ORGANISATEUR
-$org = 'AFT'; // id de l'organisateur
+$org = 'ORG'; // id de l'organisateur
 $req = $pdo->prepare("SELECT * FROM cd16_blocs_".$jour );
 $req->execute();
 
@@ -50,7 +50,7 @@ $req->execute();
 
 
 if(isset($_POST['btnSearchNom'])){
-    $req = $pdo->prepare("SELECT  *, r.id as rid FROM cd16_reservations as r, cd16_users as u WHERE r.user_id= u.id AND u.firstname like '".$_POST['searchNom']."%' AND u.lastname='AFT' AND jour='".$jourReserv."' ORDER BY r.id DESC  ");
+    $req = $pdo->prepare("SELECT  *, r.id as rid FROM cd16_reservations as r, cd16_users as u WHERE r.user_id= u.id AND u.firstname like '".$_POST['searchNom']."%' AND u.lastname='".$org."' AND jour='".$jourReserv."' ORDER BY r.id DESC  ");
     $req->execute();
 }
 
@@ -60,7 +60,7 @@ if(isset($_POST['btnSearchNom'])){
 <div id="jour" hidden="true"><?= $jour ?></div>
 <div class="row text-center">
     <div class="col-md-12">
-        <button type="button" class="btn btn-<?= $couleurJour ?>"><h2>Tickets - AFT - <?= $grandJour ?></h2></button>
+        <button type="button" class="btn btn-<?= $couleurJour ?>"><h2>Tickets - <?= $org ?> - <?= $grandJour ?></h2></button>
     </div>
     <div class="col-md-12" style="height: 20px;"></div>
 </div>
@@ -115,8 +115,12 @@ if(isset($_POST['btnSearchNom'])){
 <div class="col-md-6">
     <div class="row">
         <div class="alert alert-success" role="alert">
-            <p><strong>Places disponibles</strong></p>
-            <p id="pBloc"></p>
+        <table width="100%">
+        <tr>
+            <td style="text-align:left"><strong>Places disponibles organisateur</strong></td>
+            <td id="pBloc" style="text-align:right"></td>
+        </tr>
+        </table>
 
         </div>
     </div>
@@ -153,10 +157,15 @@ if(isset($_POST['btnSearchNom'])){
         <div class="col-md-6">
             <div class="input-group">
                 <span class="input-group-addon">Type: </span>
-                <input id="inputType" type="text" class="form-control" value="0">
+                <!--<input id="inputType" type="text" class="form-control" value="0">-->
+                <select id="inputType" class="form-control">
+                    <option>VIP</option>
+                    <option>VIP Lounge</option>
+                    <option>Guest</option>
+                </select>
             </div>
         </div>
-
+        <input type="hidden" name="inputOrganisateur" id="inputOrganisateur" value="<?= $org ?>">
         <p id="salleHelp" style="font-size: 1em;"></p>
         <div class="col-md-12" style="height: 20px;"></div>
         <button id="btnReservOrg" type="button" class="btn btn-primary btn-lg">Réserver</button>
@@ -197,6 +206,7 @@ if(isset($_POST['btnSearchNom'])){
         <thead>
             <th>N°</th>
             <th>Bénéficiaire</th>
+            <th>Type</th>
             <th>Bloc</th>
             <th>Pl.Adulte</th>
             <th>Pl.Enfant</th>
@@ -209,6 +219,7 @@ if(isset($_POST['btnSearchNom'])){
             <tr>
                 <td style="text-align: left;"><?= $res->rid; ?></td>
                 <td style="text-align: left;color:red;"><?= strtoupper($res->firstname); ?></td>
+                <td style="text-align: left;"><?= $res->type; ?></td>
                 <td style="text-align: left;"><?= $res->bloc; ?></td>
                 <td style="text-align: left;"><?= $res->nbplaces; ?></td>
                 <td style="text-align: left;"><?= $res->nbplaces_half; ?></td>

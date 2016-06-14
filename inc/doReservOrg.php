@@ -4,8 +4,9 @@ require_once 'conn.php';
 
 // créer le user avec lastname=AFT et firstname=leBeneficiaire et récupérer le id
 $owner = $_POST['inputBeneficiaire'];
-$req = $pdo->prepare("INSERT INTO cd16_users SET lastname = 'AFT', firstname = ?");
-$req->execute([$owner]);
+$org = $_POST['inputOrganisateur'];
+$req = $pdo->prepare("INSERT INTO cd16_users SET lastname = ?, firstname = ?");
+$req->execute([$org, $owner]);
 $user_id = $pdo->lastInsertId();
 
 
