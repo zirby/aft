@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>CD2016-AFT</title>
+    <title>Countrytickets-AdOrg</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap-3.3.2.min.css">
@@ -30,7 +30,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">AFT - Administration</a>
+          <a class="navbar-brand" href="index.php">ORGANISATEUR - Administration</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
